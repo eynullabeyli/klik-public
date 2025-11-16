@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokal - Support & FAQ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content-wrapper {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            padding: 40px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #641BB4;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #641BB4;
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+            border-left: 4px solid #641BB4;
+            padding-left: 20px;
+            transition: transform 0.2s;
+        }
+
+        .faq-item:hover {
+            transform: translateX(5px);
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #641BB4;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-question::before {
+            content: "Q:";
+            background: #641BB4;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .faq-answer {
+            color: #555;
+            padding-left: 40px;
+            line-height: 1.8;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .support-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(100, 27, 180, 0.3);
+        }
+
+        .support-card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .support-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .support-card p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .support-card a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid white;
+            padding-bottom: 2px;
+            transition: opacity 0.2s;
+        }
+
+        .support-card a:hover {
+            opacity: 0.8;
+        }
+
+        .quick-links {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .quick-links h3 {
+            color: #641BB4;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .quick-links ul {
+            list-style: none;
+        }
+
+        .quick-links li {
+            padding: 10px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .quick-links li:last-child {
+            border-bottom: none;
+        }
+
+        .quick-links a {
+            color: #641BB4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: padding-left 0.2s;
+            display: inline-block;
+        }
+
+        .quick-links a:hover {
+            padding-left: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: #641BB4;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-left: 10px;
+        }
+
+        .category-tag {
+            display: inline-block;
+            background: #e9ecef;
+            color: #641BB4;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>🏠 Lokal Support Center</h1>
+            <p>Your Local Services Marketplace - We're Here to Help!</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content-wrapper">
+            <!-- Support Section -->
+            <div class="section">
+                <h2 class="section-title">Contact Support</h2>
+                <p style="margin-bottom: 30px; color: #666;">
+                    Can't find what you're looking for? Our support team is here to help you 24/7.
+                </p>
+
+                <div class="support-grid">
+                    <div class="support-card">
+                        <div class="support-card-icon">📧</div>
+                        <h3>Email Support</h3>
+                        <p>Get help via email</p>
+                        <p><a href="mailto:supportlokal@gmail.com">supportlokal@gmail.com</a></p>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Response time: Within 24 hours</p>
+                    </div>
+
+                    <div class="support-card">
+                        <div class="support-card-icon">📱</div>
+                        <h3>Phone Support</h3>
+                        <p>Speak with a representative</p>
+                        <p><a href="tel:+994513114444">+994 51 311 44 44</a></p>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Mon-Fri: 9 AM - 6 PM EST</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px; padding: 30px; background: white; border-radius: 15px; border-left: 5px solid #641BB4;">
+                    <h3 style="color: #641BB4; margin-bottom: 15px;">🎉 Need Immediate Help?</h3>
+                    <p style="color: #666; line-height: 1.8;">
+                        For urgent issues with active bookings, use the "Help with this order" button in your order details. 
+                        This connects you directly with our priority support team who can assist you in real-time.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="section" style="background: #f8f9fa;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+
+                <div class="faq-category">
+                    <h3 style="color: #641BB4; margin-bottom: 20px;">
+                        <span class="category-tag">General</span>
+                    </h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">What is Lokal?</div>
+                        <div class="faq-answer">
+                            Lokal is a local services marketplace that connects customers with trusted service providers in their area. Whether you need a plumber, electrician, cleaner, or any other local service, Lokal makes it easy to find, book, and pay for services all in one place.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">How do I get started with Lokal?</div>
+                        <div class="faq-answer">
+                            Simply download the Lokal app from the App Store or Google Play Store, create an account, and start browsing services in your area. You can search for specific services, view provider profiles, check ratings and reviews, and book services directly through the app.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Is Lokal available in my area?</div>
+                        <div class="faq-answer">
+                            Lokal is continuously expanding to new areas. When you sign up, the app will use your location to show you available services nearby. If there are no services in your area yet, you can join our waitlist and we'll notify you when we launch in your region.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category" style="margin-top: 40px;">
+                    <h3 style="color: #641BB4; margin-bottom: 20px;">
+                        <span class="category-tag">For Customers</span>
+                    </h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How do I book a service?</div>
+                        <div class="faq-answer">
+                            Browse or search for the service you need, select a provider, choose your preferred date and time, and confirm your booking. You'll receive a notification when the provider accepts your request. You can track your order status and communicate with the provider through the in-app chat.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Can I cancel or reschedule a booking?</div>
+                        <div class="faq-answer">
+                            Yes! You can cancel or reschedule your booking through the Orders section in the app. Please note that cancellation policies may vary by provider. Check the provider's cancellation policy before booking, and try to cancel at least 24 hours in advance to avoid any fees.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">How do I rate and review a service provider?</div>
+                        <div class="faq-answer">
+                            After your service is completed, you'll receive a notification to rate your experience. You can rate the provider from 1-5 stars and leave a written review. Your feedback helps other customers make informed decisions and helps providers improve their services.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">What if I'm not satisfied with a service?</div>
+                        <div class="faq-answer">
+                            Your satisfaction is our priority. If you're not happy with a service, please contact our support team immediately. We'll work with you and the provider to resolve the issue.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category" style="margin-top: 40px;">
+                    <h3 style="color: #641BB4; margin-bottom: 20px;">
+                        <span class="category-tag">For Service Providers</span>
+                    </h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How do I become a service provider on Lokal?</div>
+                        <div class="faq-answer">
+                            To become a provider, download the app and select "Become a Provider" during registration. You'll need to complete your profile, select the services you offer, set your availability and pricing, and verify your identity. Our team will review your application and get back to you within 2-3 business days.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Can I set my own prices and schedule?</div>
+                        <div class="faq-answer">
+                            Absolutely! As a provider, you have full control over your pricing and availability. Set your rates based on your experience and market research. You can also update your schedule anytime to mark when you're available to take bookings.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">How does the verification process work?</div>
+                        <div class="faq-answer">
+                            For the safety of our community, all providers must complete identity verification. This includes submitting a valid ID, proof of address, and relevant certifications or licenses for specialized services. This helps build trust and ensures quality service for customers.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category" style="margin-top: 40px;">
+                    <h3 style="color: #641BB4; margin-bottom: 20px;">
+                        <span class="category-tag">Privacy & Data Collection</span>
+                    </h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">What data does Lokal collect?</div>
+                        <div class="faq-answer">
+                            Lokal collects information necessary to provide our services effectively. This includes: your profile information (name, email, phone number), location data to show nearby service providers, photos you upload for your profile or service requests, payment information for transactions, and usage data to improve the app experience. All data collection is done with your explicit permission and in compliance with privacy regulations.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">How does Lokal use my location data?</div>
+                        <div class="faq-answer">
+                            We use your location to find and display service providers near you, calculate distances and estimated travel times, and help match you with the closest available professionals. For example, when you search for a plumber, we show you providers in your vicinity with their distance from your location. Your location is only accessed when you use the app and is never shared with third parties without your consent.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Why does Lokal need access to my camera and photos?</div>
+                        <div class="faq-answer">
+                            Camera and photo access allows you to upload profile pictures, attach images when requesting services (for example, taking a photo of a broken appliance to show the provider), and enables service providers to document completed work. You can choose when to grant this permission and can upload photos from your gallery or take new ones directly in the app.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">How is my payment information secured?</div>
+                        <div class="faq-answer">
+                            Your payment security is our top priority. We use Face ID and biometric authentication to authorize payments and protect your account. All payment information is encrypted and processed through secure payment gateways. We never store your full credit card details on our servers. When you use Face ID, you can quickly confirm service payments without entering passwords, while maintaining the highest security standards.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Can I control what data Lokal collects?</div>
+                        <div class="faq-answer">
+                            Yes! You have full control over your data. You can manage app permissions in your device settings, choose what information to share in your profile, and request to view or delete your data at any time. You can also opt out of non-essential data collection like analytics. To manage your privacy settings, go to your Profile > Settings > Privacy within the app.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Does Lokal share my data with third parties?</div>
+                        <div class="faq-answer">
+                            We only share data necessary to provide our services. Service providers see your booking details and location for the service they're performing. We may share anonymized usage data with analytics services to improve the app. We never sell your personal information to third parties. For complete details, please review our Privacy Policy.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">How long does Lokal keep my data?</div>
+                        <div class="faq-answer">
+                            We retain your data as long as your account is active and for a reasonable period afterward to comply with legal obligations and resolve disputes. If you delete your account, we'll remove your personal information within 30 days, except for data we're required to keep for legal or regulatory purposes. You can request data deletion at any time by contacting support.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category" style="margin-top: 40px;">
+                    <h3 style="color: #641BB4; margin-bottom: 20px;">
+                        <span class="category-tag">Technical Issues</span>
+                    </h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">The app is not loading or crashing. What should I do?</div>
+                        <div class="faq-answer">
+                            Try these troubleshooting steps: 1) Close and reopen the app, 2) Check your internet connection, 3) Make sure you have the latest version of the app, 4) Restart your device, 5) Clear the app cache in your device settings. If the problem persists, contact support with details about your device and the issue.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">I'm not receiving notifications. How can I fix this?</div>
+                        <div class="faq-answer">
+                            Check your device settings to ensure notifications are enabled for Lokal. Go to your phone's Settings > Apps > Lokal > Notifications and make sure they're turned on. Also check that Do Not Disturb mode is off. If you still don't receive notifications, try logging out and back in.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Why can't I see service providers near me?</div>
+                        <div class="faq-answer">
+                            Make sure location permissions are enabled for the Lokal app in your device settings. The app needs access to your location to show nearby providers. If location is enabled and you still don't see providers, it might mean there are no active providers in your area at the moment.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Lokal. All rights reserved.</p>
+            <p style="margin-top: 10px; opacity: 0.8;">
+                Version 1.0.1 | Making local services accessible to everyone
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add click-to-expand functionality for FAQ items (optional enhancement)
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isVisible = answer.style.display === 'block';
+                
+                // Toggle answer visibility
+                answer.style.display = isVisible ? 'none' : 'block';
+                
+                // Add/remove active class for styling
+                this.parentElement.style.background = isVisible ? 'transparent' : '#f8f9fa';
+                this.parentElement.style.padding = isVisible ? '0 0 0 20px' : '15px 15px 15px 20px';
+                this.parentElement.style.borderRadius = isVisible ? '0' : '10px';
+            });
+        });
+    </script>
+</body>
+</html>
+
